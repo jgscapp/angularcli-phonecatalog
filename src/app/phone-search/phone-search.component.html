@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4>Phone Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let phone of phones$ | async" >
+      <a routerLink="/detail/{{phone.id}}">
+        {{phone.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- The $ is a convention that indicates phones$ is an Observable, not an array.
+The *ngFor can't do anything with an Observable. But there's also a pipe character (|) followed by async, which identifies Angular's AsyncPipe.
+The AsyncPipe subscribes to an Observable automatically so you won't have to do so in the component class. -->

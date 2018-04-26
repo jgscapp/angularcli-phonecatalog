@@ -1,0 +1,134 @@
+<!-- <div *ngIf="phone"> -->
+<div *ngIf="details">
+
+
+
+  <div class="phone-images">
+    <!-- <img [src]="img" alt={{img}} class="phone"  [ngClass]="{selected: img === mainImageUrl}"
+        *ngFor="let img of details.images" /> -->
+   <!-- <div *ngIf= "mainImageUrl===' '"; else elseBlock><<h2>{{details.name}}</h2></div>
+   <ng-template #elseBlock><img [src]="mainImageUrl" class="phone"/></ng-template> -->
+   <!-- <img [src]="mainImageUrl" class="phone"/> -->
+   <img [src]="details.images[0]" id="mainImage"/>
+ </div>
+
+  <h1>{{details.name}}</h1>
+
+  <p>{{details.description}}</p>
+
+
+ <ul class="phone-thumbs">
+   <li *ngFor="let img of details.images">
+     <img [src]="img" (click)="setImage(img)">
+   </li>
+ </ul>
+
+ <ul class="specs">
+   <li>
+     <span>Availability and Networks</span>
+     <dl>
+       <dt>Availability</dt>
+       <dd *ngFor="let availability of details.availability">{{availability}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Battery</span>
+     <dl>
+       <dt>Type</dt>
+       <dd>{{details.battery.type}}</dd>
+       <dt>Talk Time</dt>
+       <dd>{{details.battery.talkTime}}</dd>
+       <dt>Standby time (max)</dt>
+       <dd>{{details.battery.standbyTime}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Storage and Memory</span>
+     <dl>
+       <dt>RAM</dt>
+       <dd>{{details.storage.ram}}</dd>
+       <dt>Internal Storage</dt>
+       <dd>{{details.storage.flash}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Connectivity</span>
+     <dl>
+       <dt>Network Support</dt>
+       <dd>{{details.connectivity.cell}}</dd>
+       <dt>WiFi</dt>
+       <dd>{{details.connectivity.wifi}}</dd>
+       <dt>Bluetooth</dt>
+       <dd>{{details.connectivity.bluetooth}}</dd>
+       <dt>Infrared</dt>
+       <!-- <dd>{{details.connectivity.infrared | checkmark}}</dd> -->
+       <dd>{{details.connectivity.infrared}}</dd>
+       <dt>GPS</dt>
+       <!-- <dd>{{details.connectivity.gps | checkmark}}</dd> -->
+       <dd>{{details.connectivity.gps}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Android</span>
+     <dl>
+       <dt>OS Version</dt>
+       <dd>{{details.android.os}}</dd>
+       <dt>UI</dt>
+       <dd>{{details.android.ui}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Size and Weight</span>
+     <dl>
+       <dt>Dimensions</dt>
+       <dd *ngFor="let dim of details.sizeAndWeight.dimensions">{{dim}}</dd>
+       <dt>Weight</dt>
+       <dd>{{details.sizeAndWeight.weight}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Display</span>
+     <dl>
+       <dt>Screen size</dt>
+       <dd>{{details.display.screenSize}}</dd>
+       <dt>Screen resolution</dt>
+       <dd>{{details.display.screenResolution}}</dd>
+       <dt>Touch screen</dt>
+       <!-- <dd>{{details.display.touchScreen | checkmark}}</dd> -->
+       <dd>{{details.display.touchScreen }}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Hardware</span>
+     <dl>
+       <dt>CPU</dt>
+       <dd>{{details.hardware.cpu}}</dd>
+       <dt>USB</dt>
+       <dd>{{details.hardware.usb}}</dd>
+       <dt>Audio / headphone jack</dt>
+       <dd>{{details.hardware.audioJack}}</dd>
+       <dt>FM Radio</dt>
+       <dd>{{details.hardware.fmRadio}}</dd>
+       <!-- <dd>{{details.hardware.fmRadio | checkmark}}</dd> -->
+       <dt>Accelerometer</dt>
+       <!-- <dd>{{details.hardware.accelerometer | checkmark}}</dd> -->
+       <dd>{{details.hardware.accelerometer}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Camera</span>
+     <dl>
+       <dt>Primary</dt>
+       <dd>{{details.camera.primary}}</dd>
+       <dt>Features</dt>
+       <dd>{{details.camera.features.join(', ')}}</dd>
+     </dl>
+   </li>
+   <li>
+     <span>Additional Features</span>
+     <dd>{{details.additionalFeatures}}</dd>
+   </li>
+ </ul>
+
+  <button (click)="goBack()">back</button>
+ </div>
