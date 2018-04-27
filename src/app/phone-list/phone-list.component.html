@@ -12,10 +12,10 @@
 <div class="col-md-10">
 <ul class="phones">
    <li *ngFor="let phone of phones" class="img-thumbnail">  <!--[class.selected]="phone === selectedPhone" (click)="onSelect(phone)" -->
-    <a href= "/detail/{{phone.id}}" class="thumb" >
+    <a routerLink= "/detail/{{phone.id}}" class="thumb" >
       <img [src]="phone.imageUrl" alt="{{phone.name}}" >
     </a>
-    <a href="/detail/{{phone.id}}">{{phone.name}}</a>
+    <a routerLink ="/detail/{{phone.id}}">{{phone.name}}</a>
     <p>{{phone.snippet}}</p>
    <!-- <span class="badge">{{phone.age}}</span> {{phone.id}} -->
  </li>
