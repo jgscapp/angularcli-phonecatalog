@@ -1,11 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Phone } from '../phone';
 import { PhoneService } from '../phone.service';
 
 @Component({
   selector: 'app-phone-list',
   templateUrl: './phone-list.component.html',
-  styleUrls: ['./phone-list.component.css']
+  styleUrls: ['./phone-list.component.css'],
+  animations: [
+    trigger('phoneslist', [
+      // state('0', style({transform: 'translateX(0) scale(1.1)'}))
+    transition('void => *', [ style({transform: 'translateX(0) scale(0)'}),
+        animate(200)])
+    ])
+  ]
 })
 export class PhoneListComponent implements OnInit {
 

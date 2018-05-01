@@ -11,7 +11,7 @@
 
 <div class="col-md-10">
 <ul class="phones">
-   <li *ngFor="let phone of phones" class="img-thumbnail">  <!--[class.selected]="phone === selectedPhone" (click)="onSelect(phone)" -->
+   <li *ngFor="let phone of phones" class="img-thumbnail" [@phoneslist]="phone.age">  <!--[class.selected]="phone === selectedPhone" (click)="onSelect(phone)" -->
     <a routerLink= "/detail/{{phone.id}}" class="thumb" >
       <img [src]="phone.imageUrl" alt="{{phone.name}}" >
     </a>
